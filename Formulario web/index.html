@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css" />
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="./messages_es.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    
+    <title>Encusta Estudiantes San Buenaventura</title>
+</head>
+<body>
+    <section class="multi-step-form">
+	
+        <h1>Encuesta USB</h1>
+        
+        <div class="steps">
+            <button class="active" type="button" disabled>Paso uno</button> | 
+            <button type="button" disabled>Paso dos</button> | 
+            <button type="button" disabled>Paso tres</button>
+        </div>
+        
+        <form>
+            
+            <fieldset aria-label="Step One" tabindex="-1" id="step-1">
+                <div class="form-group">
+                    <label for="escuela">Escuela</label>
+                    <input class="form-control" type="text" name="escuela" id="escuela" required>
+                    <ul id="resultados-escuela">
+
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Genero</label>
+                    <select class="form-control" id="genero" name="genero">
+                      <option value="M">Masculino</option>
+                      <option value="F">Femenino</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad</label>
+                    <input class="form-control" type="number" name="edad" id="edad" required number>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input class="form-control" type="text" name="direccion" id="direccion" required>
+                </div>
+                <div class="form-group">
+                    <label for="tamano_familia">Nucleo familiar</label>
+                    <select class="form-control" id="tamano_familia" name="tamano_familia">
+                        <option value="LE3">Menor o iguala 3</option>
+                        <option value="GT3">Más de 3</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="estado_padres">Estado de convivencia de los padres</label>
+                    <select class="form-control" id="estado_padres" name="estado_padres">
+                        <option value="T">Viven juntos</option>
+                        <option value="A">Separados</option>
+                      </select>
+                </div>
+                <p>
+                    <button class="btn btn-secondary btn-next" type="button" aria-controls="step-2">Next</button>
+                </p>
+            </fieldset>
+            
+            <fieldset aria-label="Step Two" tabindex="-1" id="step-2">
+                <div class="form-group">
+                    <label for="Medu">Educación de la madre</label>
+                    <select class="form-control" id="Medu" name="Medu">
+                        <option value="0">Ninguna</option>
+                        <option value="1">Educación primaria</option>
+                        <option value="2">Educación secundaria</option>
+                        <option value="3">Educación tecnológica</option>
+                        <option value="4">Educación universitaria</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="Fedu">Educación del padre</label>
+                    <select class="form-control" id="Fedu" name="Fedu">
+                        <option value="0">Ninguna</option>
+                        <option value="1">Educación primaria</option>
+                        <option value="2">Educación secundaria</option>
+                        <option value="3">Educación tecnológica</option>
+                        <option value="4">Educación universitaria</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="Mjob">Trabajo de la Madre</label>
+                    <select class="form-control" id="Mjob" name="Mjob">
+                        <option value="teacher">Profesora</option>
+                        <option value="health">Salud</option>
+                        <option value="services">servicios civiles (sector público or policía)</option>
+                        <option value="at_home">Ama de casa</option>
+                        <option value="other">Otros</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="Fjob">Trabajo del padre</label>
+                    <select class="form-control" id="Fjob" name="Fjob">
+                        <option value="teacher">Profesora</option>
+                        <option value="health">Salud</option>
+                        <option value="services">servicios civiles (sector público or policía)</option>
+                        <option value="at_home">Ama de casa</option>
+                        <option value="other">Otros</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Razón para elegir esta universidad</label>
+                    <select class="form-control" id="reason" name="reason">
+                        <option value="home">Cerca de casa</option>
+                        <option value="reputation">Reputación</option>
+                        <option value="course">Cursos</option>
+                        <option value="other">Otra</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="guardian">Tutor del estudiante</label>
+                    <select class="form-control" id="guardian" name="guardian">
+                        <option value="mother">Madre</option>
+                        <option value="father">Padre</option>
+                        <option value="other">Otro</option>
+                      </select>
+                </div>
+                <p>
+                    <button class="btn btn-secondary btn-prev" type="button" aria-controls="step-1">Anterior</button>
+                    <button class="btn btn-secondary btn-next" type="button" aria-controls="step-3">Siguiente</button>
+                </p>
+            </fieldset>
+            
+            <fieldset aria-label="Step Three" tabindex="-1" id="step-3">
+                <div class="form-group">
+                    <label for="traveltime">Tiempo de viaje a la universidad</label>
+                    <select class="form-control" id="traveltime" name="traveltime">
+                        <option value="1">Menos de 15 min</option>
+                        <option value="2">Entre 15 y 30 min</option>
+                        <option value="3">Entre 30 y 1 hr </option>
+                        <option value="4">Más de una hora</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="studytime">Tiempo de estudio semanal</label>
+                    <select class="form-control" id="studytime" name="studytime">
+                        <option value="1">Menos de 2 hrs</option>
+                        <option value="2">Entre 2 y 5 hrs</option>
+                        <option value="3">Entre 5 y 10 hrs</option>
+                        <option value="4">Más de 10 horas</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="failures">Número de materias perdidas anteriores</label>
+                    <select class="form-control" id="failures" name="failures">
+                        <option value="1">1 o menos</option>
+                        <option value="2">Entre 1 y 3 materias</option>
+                        <option value="3">4 o más </option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="schoolsup">Apoyo educativo adicional</label>
+                    <select class="form-control" id="schoolsup" name="schoolsup">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                      </select>
+                </div>
+                <p>
+                    <button class="btn btn-secondary btn-prev" type="button" aria-controls="step-1">Anterior</button>
+                    <button class="btn btn-secondary btn-next" type="button" aria-controls="step-3">Siguiente</button>
+                </p>
+            </fieldset>
+
+            <fieldset aria-label="Step Four" tabindex="-1" id="step-4">
+                <div class="form-group">
+                    <label for="famsup">Apoyo educativo familiar</label>
+                    <select class="form-control" id="famsup" name="famsup">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="paid">Clases extra pagadas</label>
+                    <select class="form-control" id="paid" name="paid">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="activities">Actividades extracurriculares</label>
+                    <select class="form-control" id="activities" name="activities">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="internet">Acceso a internet en casa</label>
+                    <select class="form-control" id="internet" name="internet">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="romantic">Relación romántica</label>
+                    <select class="form-control" id="romantic" name="romantic">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                      </select>
+                </div>
+                <p>
+                    <button class="btn btn-secondary btn-prev" type="button" aria-controls="step-1">Anterior</button>
+                    <button class="btn btn-secondary btn-next" type="button" aria-controls="step-3">Siguiente</button>
+                </p>
+            </fieldset>
+
+            <fieldset aria-label="Step Four" tabindex="-1" id="step-4">
+                <div class="form-group">
+                    <label for="goout">Salir con amigos</label>
+                    <select class="form-control" id="goout" name="goout">
+                        <option value="1">Nunca</option>
+                        <option value="2">De vez en cuando</option>
+                        <option value="3">Normalmente</option>
+                        <option value="4">Casi siempre</option>
+                        <option value="5">Siempre</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="Dalc">Consumo de alcohol en semana</label>
+                    <select class="form-control" id="Dalc" name="Dalc">
+                        <option value="1">Nunca</option>
+                        <option value="2">De vez en cuando</option>
+                        <option value="3">Normalmente</option>
+                        <option value="4">Casi siempre</option>
+                        <option value="5">Siempre</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="Walc">Consumo de alcohol fin de semana</label>
+                    <select class="form-control" id="Walc" name="Walc">
+                        <option value="1">Nunca</option>
+                        <option value="2">De vez en cuando</option>
+                        <option value="3">Normalmente</option>
+                        <option value="4">Casi siempre</option>
+                        <option value="5">Siempre</option>
+                      </select>
+                </div>
+                <p>
+                    <button class="btn btn-secondary btn-edit" type="button">Revisar</button> 
+                    <button class="btn btn-success" type="submit">Enviar</button> 
+                </p>
+            </fieldset>
+            
+        </form>
+    </section>
+    
+
+    <script src="./main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+html {
+    height: 100%;
+	/*Image only BG fallback*/
+	
+	/*background = gradient + image pattern combo*/
+	background: 
+		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+.multi-step-form.edit-form fieldset button, .multi-step-form.edit-form h2 {
+    display: none !important;
+}
+.no-js .multi-step-form fieldset, .multi-step-form.edit-form fieldset {
+    display: block !important;
+}
+.multi-step-form.edit-form [type=submit], .multi-step-form.edit-form [type=reset] {
+    display: inline-block !important;
+}
+.multi-step-form.edit-form .steps {
+    display: none;
+}
+.multi-step-form fieldset {
+    display: none;
+}
+.multi-step-form fieldset:first-of-type {
+    display: block;
+}
+.multi-step-form fieldset.hidden {
+    display: none;
+}
+.multi-step-form fieldset.visible {
+    display: block;
+}
+
+.multi-step-form .steps {
+    margin: 14px 0;
+}
+
+.multi-step-form .steps button {
+    border: 0;
+}
+.multi-step-form .steps [disabled] {
+    background: none;
+}
+.multi-step-form .steps .active {
+    background: #eee;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    flex: 0 0 35em;
+    padding: 1em;
+}
+
+.error {
+    color: red;
+}
+
+label .optional {
+    font-weight: normal;
+    font-size: 90%;
+}
+
+ul {
+    border-color: #9dd7f5;
+    padding: 0;
+}
+
+ul li {
+    cursor: pointer;
+    list-style: none;
+    padding-left: 0px 10px;
+    user-select: none;
+}
+
+ul li:hover {
+    background-color: #9dd7f5ab;
+    color: #0489ce;
+}
